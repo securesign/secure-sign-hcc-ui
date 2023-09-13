@@ -1,6 +1,6 @@
 import './secure-sign.scss';
 import { Button, ProgressStep, ProgressStepper, Text, TextContent, TextVariants } from '@patternfly/react-core';
-import { ArrowLeftIcon, ArrowRightIcon, CheckIcon, ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
+import { ArrowLeftIcon, ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
 import React from 'react';
 
 type GettingStartedProps = {

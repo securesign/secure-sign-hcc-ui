@@ -10,14 +10,14 @@ import { notificationsReducer } from '@redhat-cloud-services/frontend-components
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
 const App = () => {
-  const { updateDocumentTitle } = useChrome();
+  const { updateDocumentTitle, init } = useChrome();
 
   useEffect(() => {
     const registry = getRegistry();
     registry.register({ notifications: notificationsReducer as Reducer });
+    init();
     // You can use directly the name of your app
-    updateDocumentTitle('Starter app');
-    console.log('app has mounted', []);
+    updateDocumentTitle('SecureSign');
   }, []);
 
   return (

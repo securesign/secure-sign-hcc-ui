@@ -3,21 +3,11 @@ import { Route as RouterRoute, Routes as RouterRoutes } from 'react-router-dom';
 import { InvalidObject } from '@redhat-cloud-services/frontend-components/InvalidObject';
 import { Bullseye, Spinner } from '@patternfly/react-core';
 
-const SamplePage = lazy(
-  () =>
-    import(
-      /* webpackChunkName: "SamplePage" */ './Routes/SamplePage/SamplePage'
-    )
-);
-const OopsPage = lazy(
-  () => import(/* webpackChunkName: "OopsPage" */ './Routes/OopsPage/OopsPage')
-);
-const NoPermissionsPage = lazy(
-  () =>
-    import(
-      /* webpackChunkName: "NoPermissionsPage" */ './Routes/NoPermissionsPage/NoPermissionsPage'
-    )
-);
+const SamplePage = lazy(() => import(/* webpackChunkName: "SamplePage" */ './Routes/SamplePage/SamplePage'));
+const OopsPage = lazy(() => import(/* webpackChunkName: "OopsPage" */ './Routes/OopsPage/OopsPage'));
+const NoPermissionsPage = lazy(() => import(/* webpackChunkName: "NoPermissionsPage" */ './Routes/NoPermissionsPage/NoPermissionsPage'));
+
+const SecureSignPage = lazy(() => import(/* webpackChunkName: "SecureSignPage" */ './Routes/SecureSignPage/SecureSign'));
 
 const routes = [
   {
@@ -29,7 +19,7 @@ const routes = [
     element: OopsPage,
   },
   {
-    path: '/',
+    path: '/sample-page',
     element: SamplePage,
   },
   /* Catch all unmatched routes */
@@ -38,6 +28,10 @@ const routes = [
       path: '*',
     },
     element: InvalidObject,
+  },
+  {
+    path: '/',
+    element: SecureSignPage,
   },
 ];
 

@@ -7,10 +7,6 @@ import { Middleware, Reducer } from 'redux';
 export let registry: ReducerRegistry<Reducer>;
 
 export function init(...middleware: Middleware[]) {
-  registry = getRegistry({}, [
-    promiseMiddleware,
-    notificationsMiddleware({ errorDescriptionKey: ['detail', 'stack'] }),
-    ...middleware,
-  ]);
+  registry = getRegistry({}, [promiseMiddleware, notificationsMiddleware({ errorDescriptionKey: ['detail', 'stack'] }), ...middleware]);
   return registry;
 }

@@ -17,6 +17,7 @@ const App = () => {
     registry.register({ notifications: notificationsReducer as Reducer });
     // You can use directly the name of your app
     updateDocumentTitle('Starter app');
+    console.log('app has mounted', []);
   }, []);
 
   return (

@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import("eslint").Linter.Config} */
+const config = {
   extends: '@redhat-cloud-services/eslint-config-redhat-cloud-services',
   globals: {
     insights: 'readonly',
@@ -15,6 +16,13 @@ module.exports = {
       rules: {
         'react/prop-types': 'off',
         '@typescript-eslint/no-unused-vars': 'error',
+        quotes: [
+          'off',
+          'single',
+          {
+            allowTemplateLiterals: true,
+          },
+        ],
       },
     },
   ],
@@ -27,3 +35,5 @@ module.exports = {
     ],
   },
 };
+
+module.exports = config;

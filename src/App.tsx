@@ -17,7 +17,7 @@ const App = () => {
     registry.register({ notifications: notificationsReducer as Reducer });
     init();
     // You can use directly the name of your app
-    updateDocumentTitle('SecureSign');
+    updateDocumentTitle('Trusted Artifact Signer');
   }, []);
 
   return (

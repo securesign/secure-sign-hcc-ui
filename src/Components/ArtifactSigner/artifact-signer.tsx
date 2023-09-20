@@ -7,7 +7,7 @@ type GettingStartedProps = {
   onGetStartedClick: () => void;
 };
 
-type SecureSignProps = {
+type ArtifactSignerProps = {
   currentStep: number;
   onDownloadSecret: () => void;
   userHasDownloadedSecret: boolean;
@@ -20,11 +20,11 @@ const GettingStarted = ({ onGetStartedClick }: GettingStartedProps) => {
     <div>
       <TextContent>
         <Text component={TextVariants.p}>
-          {/* SecureSign enables secure signing and verification of software artifacts, enhancing supply chain security. Signed materials are stored in a
+          {/* Trusted Artifact Signer enables secure signing and verification of software artifacts, enhancing supply chain security. Signed materials are stored in a
           tamper-resistant public log. */}
-          SecureSign empowers software developers and consumers to securely sign and verify software artifacts such as release files, container
-          images, binaries, bill of material manifests and more to enhance software supply chain security. Signing materials are then stored in a
-          tamper-resistant public log.
+          Trusted Artifact Signer empowers software developers and consumers to securely sign and verify software artifacts such as release files,
+          container images, binaries, bill of material manifests and more to enhance software supply chain security. Signing materials are then stored
+          in a tamper-resistant public log.
         </Text>
       </TextContent>
       <Button
@@ -61,7 +61,7 @@ const StepperFlow = ({ currentStep }: StepperFlowProps) => {
         isCurrent={currentStep === 2}
         variant={currentStep > 2 ? 'success' : currentStep === 2 ? 'info' : 'pending'}
       >
-        Install Secure Sign in OpenShift
+        Install Trusted Artifact Signer in OpenShift
       </ProgressStep>
       <ProgressStep
         id="complete-step"
@@ -119,15 +119,17 @@ const DownloadPullSecretStep = ({ canProceed, onDownloadSecret, onNext, onPrevio
   );
 };
 
-type InstallSecureSignStepProps = {
+type InstallArtifactSignerStepProps = {
   onPrevious: () => void;
   onNext: () => void;
 };
-const InstallSecureSignStep = ({ onNext, onPrevious }: InstallSecureSignStepProps) => {
+const InstallArtifactSignerStep = ({ onNext, onPrevious }: InstallArtifactSignerStepProps) => {
   return (
     <div>
       <TextContent>
-        <Text component={TextVariants.p}>Install SecureSign on an OpenShift cluster by following the instructions in the documentation</Text>
+        <Text component={TextVariants.p}>
+          Install Trusted Artifact Signer on an OpenShift cluster by following the instructions in the documentation
+        </Text>
         <div
           style={{
             flex: 1,
@@ -145,7 +147,7 @@ const InstallSecureSignStep = ({ onNext, onPrevious }: InstallSecureSignStepProp
             iconPosition="right"
             icon={<ExternalLinkSquareAltIcon />}
           >
-            SecureSign Documentation
+            Trusted Artifact Signer Documentation
           </Button>
           <div
             style={{
@@ -172,7 +174,7 @@ const SuccessStep = ({ onPrevious }: SuccessStepProps) => {
   return (
     <div>
       <TextContent>
-        <Text component={TextVariants.p}>SecureSign is installed and ready to use</Text>
+        <Text component={TextVariants.p}>Trusted Artifact Signer is installed and ready to use</Text>
         <div>
           <Button variant="link" onClick={onPrevious}>
             <ArrowLeftIcon /> Previous
@@ -191,13 +193,13 @@ const SuccessStep = ({ onPrevious }: SuccessStepProps) => {
   );
 };
 
-const SecureSign: React.FC<SecureSignProps> = ({
+const ArtifactSigner: React.FC<ArtifactSignerProps> = ({
   currentStep,
   nextStep,
   previousStep,
   userHasDownloadedSecret,
   onDownloadSecret,
-}: SecureSignProps) => {
+}: ArtifactSignerProps) => {
   return (
     <div className="secure-sign-component" id="secure-sign-component">
       {currentStep === 0 ? <GettingStarted onGetStartedClick={nextStep} /> : <StepperFlow currentStep={currentStep} />}
@@ -209,12 +211,12 @@ const SecureSign: React.FC<SecureSignProps> = ({
           onPrevious={previousStep}
         />
       )}
-      {currentStep === 2 && <InstallSecureSignStep onPrevious={previousStep} onNext={nextStep} />}
+      {currentStep === 2 && <InstallArtifactSignerStep onPrevious={previousStep} onNext={nextStep} />}
       {currentStep === 3 && <SuccessStep onPrevious={previousStep} />}
     </div>
   );
 };
 
-SecureSign.displayName = 'SecureSign';
+ArtifactSigner.displayName = 'ArtifactSigner';
 
-export default SecureSign;
+export default ArtifactSigner;

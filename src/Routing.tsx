@@ -7,7 +7,7 @@ const SamplePage = lazy(() => import(/* webpackChunkName: "SamplePage" */ './Rou
 const OopsPage = lazy(() => import(/* webpackChunkName: "OopsPage" */ './Routes/OopsPage/OopsPage'));
 const NoPermissionsPage = lazy(() => import(/* webpackChunkName: "NoPermissionsPage" */ './Routes/NoPermissionsPage/NoPermissionsPage'));
 
-const SecureSignPage = lazy(() => import(/* webpackChunkName: "SecureSignPage" */ './Routes/SecureSignPage/SecureSign'));
+const ArtifactSignerPage = lazy(() => import(/* webpackChunkName: "ArtifactSignerPage" */ './Routes/ArtifactSignerPage/ArtifactSigner'));
 
 const routes = [
   {
@@ -31,7 +31,7 @@ const routes = [
   },
   {
     path: '/',
-    element: SecureSignPage,
+    element: ArtifactSignerPage,
   },
 ];
 

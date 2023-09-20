@@ -7,9 +7,9 @@ import { PageHeader, PageHeaderTitle } from '@redhat-cloud-services/frontend-com
 // import { addNotification } from '@redhat-cloud-services/frontend-components-notifications/redux';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 
-const SecureSignComponent = lazy(() => import('../../Components/SecureSign/secure-sign'));
+const ArtifactSignerComponent = lazy(() => import('../../Components/ArtifactSigner/artifact-signer'));
 
-import './secure-sign.scss';
+import './artifact-signer.scss';
 // import AppLink from '../../Components/AppLink';
 import { useDownloadPullSecret, useSteps } from '../../hooks';
 
@@ -40,7 +40,7 @@ const SamplePage = () => {
   return (
     <React.Fragment>
       <PageHeader>
-        <PageHeaderTitle title="Secure Sign" />
+        <PageHeaderTitle title="Artifact Signer" />
         <p>Enables cryptographic signing, verification and provenance of software</p>
       </PageHeader>
       <Main>
@@ -55,7 +55,7 @@ const SamplePage = () => {
           </StackItem> */}
           <StackItem>
             <Suspense fallback={<Spinner />}>
-              <SecureSignComponent
+              <ArtifactSignerComponent
                 nextStep={nextStep}
                 previousStep={prevStep}
                 currentStep={step}

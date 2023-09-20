@@ -15,7 +15,7 @@ const config = {
    * If the dash character is present, you will have add a camelCase version of it to the sassPrefix.
    * If it does not contain the dash character, remove this configuration.
    */
-  sassPrefix: '.secure-sign-hcc-app, .secureSignHccApp',
+  sassPrefix: '.trusted-artifact-signer, .trustedArtifactSigner',
   /**
    * Change to false after your app is registered in configuration files
    */

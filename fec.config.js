@@ -6,9 +6,6 @@ const config = {
   debug: true,
   useProxy: true,
   proxyVerbose: true,
-  // XXX(RobotSail): These values may conflict with how redhat-frontend-components-config handles reading the webpack config
-  rootFolder: this.resolve(__dirname, '../'),
-  deployment: process.env.BETA === 'true' ? 'preview/apps' : 'apps',
   /**
    * Change accordingly to your appname in package.json.
    * The `sassPrefix` attribute is only required if your `appname` includes the dash `-` characters.

@@ -9,7 +9,18 @@ export COMPONENT='trusted-artifact-signer-hcc-ui'
 export IMAGE="quay.io/cloudservices/${COMPONENT}"
 export WORKSPACE=${WORKSPACE:-${APP_ROOT}} # if running in jenkins, use the build's workspace
 export APP_ROOT=$(pwd)
+
+# 16 is the default Node version according to ConsoleDot Onboarding.
+export NODE_BUILD_VERSION=18
 COMMON_BUILDER=https://raw.githubusercontent.com/RedHatInsights/insights-frontend-builder-common/master
+
+# --------------------------------------------
+# Options that must be configured by app owner
+# --------------------------------------------
+IQE_PLUGINS="host_inventory"
+IQE_MARKER_EXPRESSION="smoke"
+IQE_FILTER_EXPRESSION=""
+
 
 
 set -exv

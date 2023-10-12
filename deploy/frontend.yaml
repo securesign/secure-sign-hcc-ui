@@ -2,31 +2,39 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: frontend-starter-app
+  name: trusted-artifact-signer-hcc-ui
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
     metadata:
-      name: frontend-starter-app
+      name: trusted-artifact-signer-hcc-ui
     spec:
       API:
         versions:
           - v1
       envName: ${ENV_NAME}
       title: Starter App
-      deploymentRepo: https://github.com/RedHatInsights/frontend-starter-app
+      deploymentRepo: https://github.com/RedHatInsights/trusted-artifact-signer-hcc-ui
       frontend:
         paths:
-          - /apps/frontend-starter-app
+          - /apps/trusted-artifact-signer-hcc-ui
       image: ${IMAGE}:${IMAGE_TAG}
-
+      navItems:
+        - appId: trusted-artifact-signer-hcc-ui
+          title: "Trusted Artifact Signer"
+          href: "/insights/trusted-artifact-signer"
+          product: "Red Hat Trusted Artifact Signer"
       module:
-        manifestLocation: '/apps/frontend-starter-app/fed-mods.json'
+        manifestLocation: '/apps/trusted-artifact-signer-hcc-ui/fed-mods.json'
         modules:
-          - id: 'overview'
+          - id: 'trusted-artifact-signer-hcc-ui'
             module: './RootApp'
             routes:
-              - pathname: /staging/starter
+              - pathname: /staging/trusted-artifact-signer
+      akamaiCacheBustPaths:
+        - /config/chrome/fed-modules.json
+        - /apps/chrome/index.html
+        - /apps/chrome/js/fed-mods.json
 
 parameters:
   - name: ENV_NAME
@@ -34,4 +42,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/cloudservices/frontend-starter-app
+    value: quay.io/cloudservices/trusted-artifact-signer-hcc-ui

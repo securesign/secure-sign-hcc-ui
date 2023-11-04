@@ -21,7 +21,7 @@
     "verify": "npm-run-all build lint test"
   },
   "dependencies": {
-    "@patternfly/react-core": "4.250.1",
+    "@patternfly/react-core": "4.278.0",
     "@patternfly/react-icons": "^4.93.7",
     "@patternfly/react-table": "4.111.33",
     "@redhat-cloud-services/frontend-components": "^3.9.25",
